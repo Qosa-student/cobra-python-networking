@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Router Automation</title>
+  </head>
+
+  <body>
+    <h1>Router Automation</h1>
+    <p>Netmiko Router Command Execution</p>
+
+    <hr />
+
+    <form method="POST">
+      <button type="submit">Connect to Router</button>
+    </form>
+
+    {% if error %}
+    <h3 style="color: red">Connection Error</h3>
+    <p>{{ error }}</p>
+    {% endif %} {% if results %}
+    <h2>Command Results</h2>
+
+    {% for command, output in results.items() %}
+    <h3>{{ command }}</h3>
+    <pre>{{ output }}</pre>
+    {% endfor %} {% endif %}
+  </body>
+</html>
